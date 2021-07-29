@@ -142,6 +142,7 @@ from ..flaubert.modeling_flaubert import (
     FlaubertWithLMHeadModel,
 )
 from ..fsmt.modeling_fsmt import FSMTForConditionalGeneration, FSMTModel
+from ..fnet.modeling_fnet import FnetModel, FnetForMaskedLM, FnetForNextSentencePrediction, FnetForSequenceClassification
 from ..funnel.modeling_funnel import (
     FunnelBaseModel,
     FunnelForMaskedLM,
@@ -342,6 +343,7 @@ from .configuration_auto import (
     EncoderDecoderConfig,
     FlaubertConfig,
     FSMTConfig,
+    FnetConfig,
     FunnelConfig,
     GPT2Config,
     GPTNeoConfig,
@@ -388,6 +390,7 @@ logger = logging.get_logger(__name__)
 MODEL_MAPPING = OrderedDict(
     [
         # Base model mapping
+        (FnetConfig, FnetModel),
         (RemBertConfig, RemBertModel),
         (VisualBertConfig, VisualBertModel),
         (CanineConfig, CanineModel),
@@ -585,6 +588,7 @@ MODEL_FOR_IMAGE_CLASSIFICATION_MAPPING = OrderedDict(
 MODEL_FOR_MASKED_LM_MAPPING = OrderedDict(
     [
         # Model for Masked LM mapping
+        (FnetConfig, FnetForMaskedLM),
         (RemBertConfig, RemBertForMaskedLM),
         (RoFormerConfig, RoFormerForMaskedLM),
         (BigBirdConfig, BigBirdForMaskedLM),
