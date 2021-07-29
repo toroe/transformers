@@ -244,7 +244,7 @@ class FnetSelfAttention(nn.Module):
             past_key_value=None,
             output_attentions=False,
     ):      
-        with torch.cuda.amp.autocast(enabled=False):
+        with torch.cuda.amp.autocast(enabled=True):
             outputs = torch.fft.fft2(hidden_states).real
         return (outputs,)
 
