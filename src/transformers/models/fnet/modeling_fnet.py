@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""PyTorch BERT model. """
+"""PyTorch Fnet model. """
 
 
 import math
@@ -54,7 +54,7 @@ from ...modeling_utils import (
     prune_linear_layer,
 )
 from ...utils import logging
-from .configuration_fnet import BertConfig
+from .configuration_fnet import FnetConfig
 
 
 logger = logging.get_logger(__name__)
@@ -711,7 +711,7 @@ class FnetPreTrainedModel(PreTrainedModel):
     models.
     """
 
-    config_class = BertConfig
+    config_class = FnetConfig
     load_tf_weights = load_tf_weights_in_bert
     base_model_prefix = "fnet"
     _keys_to_ignore_on_load_missing = [r"position_ids"]
