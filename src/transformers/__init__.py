@@ -767,7 +767,19 @@ if is_torch_available():
             "FlaubertWithLMHeadModel",
         ]
     )
-    _import_structure["models.fnet"].extend(["FnetForMaskedLM", "FnetModel"])
+    _import_structure["models.fnet"].extend(
+        [
+            "FnetForMaskedLM", 
+            "FnetModel",
+            "FnetForQuestionAnswering",
+            "FnetForSequenceClassification",
+            "FnetForMultipleChoice",
+            "FnetForTokenClassification",
+            "FnetForNextSentencePrediction",
+            "FnetForPretraining",
+            "FnetLMHeadModel",
+        ]
+    )
     _import_structure["models.fsmt"].extend(["FSMTForConditionalGeneration", "FSMTModel", "PretrainedFSMTModel"])
     _import_structure["models.funnel"].extend(
         [
@@ -2347,7 +2359,16 @@ if TYPE_CHECKING:
             FlaubertModel,
             FlaubertWithLMHeadModel,
         )
-        from .models.fnet import FnetForMaskedLM, FnetModel
+        from .models.fnet import (
+            FnetForMaskedLM, 
+            FnetModel,
+            FnetForSequenceClassification,
+            FnetForMultipleChoice,
+            FnetForPreTraining,
+            FnetForNextSentencePrediction,
+            FnetForQuestionAnswering,
+            FnetLMHeadModel
+            )
         from .models.fsmt import FSMTForConditionalGeneration, FSMTModel, PretrainedFSMTModel
         from .models.funnel import (
             FUNNEL_PRETRAINED_MODEL_ARCHIVE_LIST,
