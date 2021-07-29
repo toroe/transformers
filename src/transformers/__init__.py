@@ -2367,7 +2367,8 @@ if TYPE_CHECKING:
             FnetForPreTraining,
             FnetForNextSentencePrediction,
             FnetForQuestionAnswering,
-            FnetLMHeadModel
+            FnetLMHeadModel,
+            FnetForTokenClassification,
             )
         from .models.fsmt import FSMTForConditionalGeneration, FSMTModel, PretrainedFSMTModel
         from .models.funnel import (
