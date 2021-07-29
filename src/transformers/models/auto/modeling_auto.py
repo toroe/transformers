@@ -142,7 +142,17 @@ from ..flaubert.modeling_flaubert import (
     FlaubertWithLMHeadModel,
 )
 from ..fsmt.modeling_fsmt import FSMTForConditionalGeneration, FSMTModel
-from ..fnet.modeling_fnet import FnetForMultipleChoice, FnetForQuestionAnswering, FnetLMHeadModel, FnetModel, FnetForMaskedLM, FnetForNextSentencePrediction, FnetForSequenceClassification
+from ..fnet.modeling_fnet import (
+    FnetForMultipleChoice, 
+    FnetForQuestionAnswering, 
+    FnetLMHeadModel, 
+    FnetModel, 
+    FnetForMaskedLM, 
+    FnetForNextSentencePrediction, 
+    FnetForSequenceClassification,
+    FnetForTokenClassification,
+    FnetForPreTraining,
+)
 from ..funnel.modeling_funnel import (
     FunnelBaseModel,
     FunnelForMaskedLM,
