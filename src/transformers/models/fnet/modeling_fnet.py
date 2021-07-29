@@ -245,7 +245,7 @@ class FnetSelfAttention(nn.Module):
             output_attentions=False,
     ):      
         with torch.cuda.amp.autocast(enabled=False):
-            outputs = torch.fft.fft(torch.fft.fft(hidden_states.float(), dim=-1), dim=-2).real
+            outputs = torch.fft.fft2(hidden_states).real
         return (outputs,)
 
 
