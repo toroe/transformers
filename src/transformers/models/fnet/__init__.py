@@ -31,7 +31,15 @@ if is_tokenizers_available():
 
 if is_torch_available():
     _import_structure["modeling_fnet"] = [
-        "FnetForMaskedLM", "FnetModel",
+        "FnetForMaskedLM", 
+        "FnetModel",
+        "FnetForQuestionAnswering",
+        "FnetForSequenceClassification",
+        "FnetForMultipleChoice",
+        "FnetForTokenClassification",
+        "FnetForNextSentencePrediction",
+        "FnetForPretraining",
+        "FnetLMHeadModel",
     ]
 
 if is_tf_available():
