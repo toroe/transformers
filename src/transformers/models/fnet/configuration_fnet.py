@@ -120,7 +120,7 @@ class FnetConfig(PretrainedConfig):
         >>> # Accessing the model configuration
         >>> configuration = model.config
     """
-    model_type = "bert"
+    model_type = "fnet" 
 
     def __init__(
         self,
