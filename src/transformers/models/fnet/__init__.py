@@ -22,7 +22,7 @@ from ...file_utils import _LazyModule, is_flax_available, is_tf_available, is_to
 
 
 _import_structure = {
-    "configuration_fnet": ["BERT_PRETRAINED_CONFIG_ARCHIVE_MAP", "BertConfig", "BertOnnxConfig"],
+    "configuration_fnet": ["FnetConfig", "FnetOnnxConfig"],
     "tokenization_fnet": ["BasicTokenizer", "BertTokenizer", "WordpieceTokenizer"],
 }
 
@@ -31,23 +31,23 @@ if is_tokenizers_available():
 
 if is_torch_available():
     _import_structure["modeling_fnet"] = [
-        "FnetForMaskedLM",
+        "FnetForMaskedLM", "FnetModel",
     ]
 
 if is_tf_available():
         _import_structure["modeling_fnet"] = [
-        "FnetForMaskedLM",
+        "FnetForMaskedLM", "FnetModel",
     ]
 
 
 if is_flax_available():
         _import_structure["modeling_fnet"] = [
-        "FnetForMaskedLM",
+        "FnetForMaskedLM", "FnetModel",
     ]
 
 
 if TYPE_CHECKING:
-    from .configuration_fnet import BERT_PRETRAINED_CONFIG_ARCHIVE_MAP, BertConfig, BertOnnxConfig
+    from .configuration_fnet import BERT_PRETRAINED_CONFIG_ARCHIVE_MAP, FnetConfig, FnetOnnxConfig
     from .tokenization_fnet import BasicTokenizer, BertTokenizer, WordpieceTokenizer
 
     if is_tokenizers_available():

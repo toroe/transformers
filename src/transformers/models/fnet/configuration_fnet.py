@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-""" BERT model configuration """
+""" Fnet model configuration """
 from collections import OrderedDict
 from typing import Mapping
 
@@ -51,10 +51,10 @@ BERT_PRETRAINED_CONFIG_ARCHIVE_MAP = {
 }
 
 
-class BertConfig(PretrainedConfig):
+class FnetConfig(PretrainedConfig):
     r"""
-    This is the configuration class to store the configuration of a :class:`~transformers.BertModel` or a
-    :class:`~transformers.TFBertModel`. It is used to instantiate a BERT model according to the specified arguments,
+    This is the configuration class to store the configuration of a :class:`~transformers.FnetModel` or a
+    :class:`~transformers.TFBertModel`. It is used to instantiate a Fnet model according to the specified arguments,
     defining the model architecture. Instantiating a configuration with the defaults will yield a similar configuration
     to that of the BERT `bert-base-uncased <https://huggingface.co/bert-base-uncased>`__ architecture.
 
@@ -163,7 +163,7 @@ class BertConfig(PretrainedConfig):
         self.classifier_dropout = classifier_dropout
 
 
-class BertOnnxConfig(OnnxConfig):
+class FnetOnnxConfig(OnnxConfig):
     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
