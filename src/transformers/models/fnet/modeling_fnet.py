@@ -1035,7 +1035,7 @@ class FnetLMHeadModel(FnetPreTrainedModel):
         if not config.is_decoder:
             logger.warning("If you want to use `BertLMHeadModel` as a standalone, add `is_decoder=True.`")
 
-        self.bert = FnetModel(config, add_pooling_layer=False)
+        self.fnet = FnetModel(config, add_pooling_layer=False)
         self.cls = FnetOnlyMLMHead(config)
 
         self.init_weights()
@@ -1110,7 +1110,7 @@ class FnetLMHeadModel(FnetPreTrainedModel):
         if labels is not None:
             use_cache = False
 
-        outputs = self.bert(
+        outputs = self.fnet(
             input_ids,
             attention_mask=attention_mask,
             token_type_ids=token_type_ids,
