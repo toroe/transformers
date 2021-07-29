@@ -142,7 +142,7 @@ from ..flaubert.modeling_flaubert import (
     FlaubertWithLMHeadModel,
 )
 from ..fsmt.modeling_fsmt import FSMTForConditionalGeneration, FSMTModel
-from ..fnet.modeling_fnet import FnetModel, FnetForMaskedLM, FnetForNextSentencePrediction, FnetForSequenceClassification
+from ..fnet.modeling_fnet import FnetForMultipleChoice, FnetForQuestionAnswering, FnetLMHeadModel, FnetModel, FnetForMaskedLM, FnetForNextSentencePrediction, FnetForSequenceClassification
 from ..funnel.modeling_funnel import (
     FunnelBaseModel,
     FunnelForMaskedLM,
@@ -457,6 +457,7 @@ MODEL_MAPPING = OrderedDict(
 MODEL_FOR_PRETRAINING_MAPPING = OrderedDict(
     [
         # Model for pre-training mapping
+        (FnetConfig, FnetForPreTraining),
         (VisualBertConfig, VisualBertForPreTraining),
         (LayoutLMConfig, LayoutLMForMaskedLM),
         (RetriBertConfig, RetriBertModel),
@@ -545,6 +546,7 @@ MODEL_WITH_LM_HEAD_MAPPING = OrderedDict(
 MODEL_FOR_CAUSAL_LM_MAPPING = OrderedDict(
     [
         # Model for Causal LM mapping
+        (FnetConfig, FnetLMHeadModel),
         (RemBertConfig, RemBertForCausalLM),
         (RoFormerConfig, RoFormerForCausalLM),
         (BigBirdPegasusConfig, BigBirdPegasusForCausalLM),
@@ -607,6 +609,7 @@ MODEL_FOR_MASKED_LM_MAPPING = OrderedDict(
         (BertConfig, BertForMaskedLM),
         (MegatronBertConfig, MegatronBertForMaskedLM),
         (MobileBertConfig, MobileBertForMaskedLM),
+        (FnetConfig, FnetForMaskedLM),
         (FlaubertConfig, FlaubertWithLMHeadModel),
         (XLMConfig, XLMWithLMHeadModel),
         (ElectraConfig, ElectraForMaskedLM),
@@ -651,6 +654,7 @@ MODEL_FOR_SEQ_TO_SEQ_CAUSAL_LM_MAPPING = OrderedDict(
 MODEL_FOR_SEQUENCE_CLASSIFICATION_MAPPING = OrderedDict(
     [
         # Model for Sequence Classification mapping
+        (FnetConfig, FnetForSequenceClassification),
         (RemBertConfig, RemBertForSequenceClassification),
         (CanineConfig, CanineForSequenceClassification),
         (RoFormerConfig, RoFormerForSequenceClassification),
@@ -693,6 +697,7 @@ MODEL_FOR_SEQUENCE_CLASSIFICATION_MAPPING = OrderedDict(
 MODEL_FOR_QUESTION_ANSWERING_MAPPING = OrderedDict(
     [
         # Model for Question Answering mapping
+        (FnetConfig, FnetForQuestionAnswering),
         (RemBertConfig, RemBertForQuestionAnswering),
         (CanineConfig, CanineForQuestionAnswering),
         (RoFormerConfig, RoFormerForQuestionAnswering),
@@ -736,6 +741,7 @@ MODEL_FOR_TABLE_QUESTION_ANSWERING_MAPPING = OrderedDict(
 MODEL_FOR_TOKEN_CLASSIFICATION_MAPPING = OrderedDict(
     [
         # Model for Token Classification mapping
+        (FnetConfig, FnetForTokenClassification),
         (RemBertConfig, RemBertForTokenClassification),
         (CanineConfig, CanineForTokenClassification),
         (RoFormerConfig, RoFormerForTokenClassification),
@@ -768,6 +774,7 @@ MODEL_FOR_TOKEN_CLASSIFICATION_MAPPING = OrderedDict(
 MODEL_FOR_MULTIPLE_CHOICE_MAPPING = OrderedDict(
     [
         # Model for Multiple Choice mapping
+        (FnetConfig, FnetForMultipleChoice),
         (RemBertConfig, RemBertForMultipleChoice),
         (CanineConfig, CanineForMultipleChoice),
         (RoFormerConfig, RoFormerForMultipleChoice),
@@ -795,6 +802,7 @@ MODEL_FOR_MULTIPLE_CHOICE_MAPPING = OrderedDict(
 
 MODEL_FOR_NEXT_SENTENCE_PREDICTION_MAPPING = OrderedDict(
     [
+        (FnetConfig, FnetForNextSentencePrediction),
         (BertConfig, BertForNextSentencePrediction),
         (MegatronBertConfig, MegatronBertForNextSentencePrediction),
         (MobileBertConfig, MobileBertForNextSentencePrediction),
