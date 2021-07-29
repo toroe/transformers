@@ -22,86 +22,56 @@ from ...file_utils import _LazyModule, is_flax_available, is_tf_available, is_to
 
 
 _import_structure = {
-    "configuration_bert": ["BERT_PRETRAINED_CONFIG_ARCHIVE_MAP", "BertConfig", "BertOnnxConfig"],
-    "tokenization_bert": ["BasicTokenizer", "BertTokenizer", "WordpieceTokenizer"],
+    "configuration_fnet": ["BERT_PRETRAINED_CONFIG_ARCHIVE_MAP", "BertConfig", "BertOnnxConfig"],
+    "tokenization_fnet": ["BasicTokenizer", "BertTokenizer", "WordpieceTokenizer"],
 }
 
 if is_tokenizers_available():
-    _import_structure["tokenization_bert_fast"] = ["BertTokenizerFast"]
+    _import_structure["tokenization_fnet_fast"] = ["BertTokenizerFast"]
 
 if is_torch_available():
-    _import_structure["modeling_bert"] = [
-        "BERT_PRETRAINED_MODEL_ARCHIVE_LIST",
-        "BertForMaskedLM",
-        "BertForMultipleChoice",
-        "BertForNextSentencePrediction",
-        "BertForPreTraining",
-        "BertForQuestionAnswering",
-        "BertForSequenceClassification",
-        "BertForTokenClassification",
-        "BertLayer",
-        "BertLMHeadModel",
-        "BertModel",
-        "BertPreTrainedModel",
-        "load_tf_weights_in_bert",
+    _import_structure["modeling_fnet"] = [
+        "FnetForMaskedLM",
     ]
 
 if is_tf_available():
-    _import_structure["modeling_tf_bert"] = [
-        "TF_BERT_PRETRAINED_MODEL_ARCHIVE_LIST",
-        "TFBertEmbeddings",
-        "TFBertForMaskedLM",
-        "TFBertForMultipleChoice",
-        "TFBertForNextSentencePrediction",
-        "TFBertForPreTraining",
-        "TFBertForQuestionAnswering",
-        "TFBertForSequenceClassification",
-        "TFBertForTokenClassification",
-        "TFBertLMHeadModel",
-        "TFBertMainLayer",
-        "TFBertModel",
-        "TFBertPreTrainedModel",
+        _import_structure["modeling_fnet"] = [
+        "FnetForMaskedLM",
     ]
+
 
 if is_flax_available():
-    _import_structure["modeling_flax_bert"] = [
-        "FlaxBertForMaskedLM",
-        "FlaxBertForMultipleChoice",
-        "FlaxBertForNextSentencePrediction",
-        "FlaxBertForPreTraining",
-        "FlaxBertForQuestionAnswering",
-        "FlaxBertForSequenceClassification",
-        "FlaxBertForTokenClassification",
-        "FlaxBertModel",
-        "FlaxBertPreTrainedModel",
+        _import_structure["modeling_fnet"] = [
+        "FnetForMaskedLM",
     ]
 
+
 if TYPE_CHECKING:
-    from .configuration_bert import BERT_PRETRAINED_CONFIG_ARCHIVE_MAP, BertConfig, BertOnnxConfig
-    from .tokenization_bert import BasicTokenizer, BertTokenizer, WordpieceTokenizer
+    from .configuration_fnet import BERT_PRETRAINED_CONFIG_ARCHIVE_MAP, BertConfig, BertOnnxConfig
+    from .tokenization_fnet import BasicTokenizer, BertTokenizer, WordpieceTokenizer
 
     if is_tokenizers_available():
-        from .tokenization_bert_fast import BertTokenizerFast
+        from .tokenization_fnet_fast import BertTokenizerFast
 
     if is_torch_available():
-        from .modeling_bert import (
+        from .modeling_fnet import (
             BERT_PRETRAINED_MODEL_ARCHIVE_LIST,
-            BertForMaskedLM,
-            BertForMultipleChoice,
-            BertForNextSentencePrediction,
-            BertForPreTraining,
-            BertForQuestionAnswering,
-            BertForSequenceClassification,
-            BertForTokenClassification,
-            BertLayer,
-            BertLMHeadModel,
-            BertModel,
-            BertPreTrainedModel,
+            FnetForMaskedLM,
+            FnetForMultipleChoice,
+            FnetForNextSentencePrediction,
+            FnetForPreTraining,
+            FnetForQuestionAnswering,
+            FnetForSequenceClassification,
+            FnetForTokenClassification,
+            FnetLayer,
+            FnetLMHeadModel,
+            FnetModel,
+            FnetPreTrainedModel,
             load_tf_weights_in_bert,
         )
 
     if is_tf_available():
-        from .modeling_tf_bert import (
+        from .modeling_tf_fnet import (
             TF_BERT_PRETRAINED_MODEL_ARCHIVE_LIST,
             TFBertEmbeddings,
             TFBertForMaskedLM,
@@ -118,7 +88,7 @@ if TYPE_CHECKING:
         )
 
     if is_flax_available():
-        from .modeling_flax_bert import (
+        from .modeling_flax_fnet import (
             FlaxBertForMaskedLM,
             FlaxBertForMultipleChoice,
             FlaxBertForNextSentencePrediction,

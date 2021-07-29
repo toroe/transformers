@@ -40,7 +40,7 @@ else:
 from typing import TYPE_CHECKING
 
 # Check the dependencies satisfy the minimal versions required.
-from . import dependency_versions_check
+#from .dependency_versions_check import *
 from .file_utils import (
     _LazyModule,
     is_flax_available,
@@ -341,7 +341,7 @@ if is_tokenizers_available():
     _import_structure["models.bart"].append("BartTokenizerFast")
     _import_structure["models.barthez"].append("BarthezTokenizerFast")
     _import_structure["models.bert"].append("BertTokenizerFast")
-    _import_structure["models.fnet"].append("BertTokenizerFast")
+    
     _import_structure["models.big_bird"].append("BigBirdTokenizerFast")
     _import_structure["models.camembert"].append("CamembertTokenizerFast")
     _import_structure["models.deberta"].append("DebertaTokenizerFast")
@@ -351,6 +351,7 @@ if is_tokenizers_available():
     )
     _import_structure["models.electra"].append("ElectraTokenizerFast")
     _import_structure["models.funnel"].append("FunnelTokenizerFast")
+    _import_structure["models.fnet"].append("BertTokenizerFast")
     _import_structure["models.gpt2"].append("GPT2TokenizerFast")
     _import_structure["models.herbert"].append("HerbertTokenizerFast")
     _import_structure["models.layoutlm"].append("LayoutLMTokenizerFast")
@@ -766,6 +767,7 @@ if is_torch_available():
             "FlaubertWithLMHeadModel",
         ]
     )
+    _import_structure["models.fnet"].extend(["FnetForMaskedLM"])
     _import_structure["models.fsmt"].extend(["FSMTForConditionalGeneration", "FSMTModel", "PretrainedFSMTModel"])
     _import_structure["models.funnel"].extend(
         [
@@ -2749,7 +2751,7 @@ if TYPE_CHECKING:
             TFAutoModelWithLMHead,
         )
         from .models.bart import TFBartForConditionalGeneration, TFBartModel, TFBartPretrainedModel
-        from .models.fnet import Fnet
+
         from .models.bert import (
             TF_BERT_PRETRAINED_MODEL_ARCHIVE_LIST,
             TFBertEmbeddings,

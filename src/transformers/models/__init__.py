@@ -44,6 +44,7 @@ from . import (
     electra,
     encoder_decoder,
     flaubert,
+    fnet,
     fsmt,
     funnel,
     gpt2,
