@@ -776,7 +776,7 @@ if is_torch_available():
             "FnetForMultipleChoice",
             "FnetForTokenClassification",
             "FnetForNextSentencePrediction",
-            "FnetForPretraining",
+            "FnetForPreTraining",
             "FnetLMHeadModel",
         ]
     )
