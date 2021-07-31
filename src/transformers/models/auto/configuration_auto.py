@@ -46,6 +46,7 @@ from ..dpr.configuration_dpr import DPR_PRETRAINED_CONFIG_ARCHIVE_MAP, DPRConfig
 from ..electra.configuration_electra import ELECTRA_PRETRAINED_CONFIG_ARCHIVE_MAP, ElectraConfig
 from ..encoder_decoder.configuration_encoder_decoder import EncoderDecoderConfig
 from ..flaubert.configuration_flaubert import FLAUBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, FlaubertConfig
+from ..fnet.configuration_fnet import FnetConfig
 from ..fsmt.configuration_fsmt import FSMT_PRETRAINED_CONFIG_ARCHIVE_MAP, FSMTConfig
 from ..funnel.configuration_funnel import FUNNEL_PRETRAINED_CONFIG_ARCHIVE_MAP, FunnelConfig
 from ..gpt2.configuration_gpt2 import GPT2_PRETRAINED_CONFIG_ARCHIVE_MAP, GPT2Config
@@ -199,6 +200,7 @@ CONFIG_MAPPING = OrderedDict(
         ("deberta-v2", DebertaV2Config),
         ("deberta", DebertaConfig),
         ("flaubert", FlaubertConfig),
+        ("fnet", FnetConfig),
         ("fsmt", FSMTConfig),
         ("squeezebert", SqueezeBertConfig),
         ("hubert", HubertConfig),
@@ -262,6 +264,7 @@ MODEL_NAMES_MAPPING = OrderedDict(
         ("longformer", "Longformer"),
         ("roberta", "RoBERTa"),
         ("flaubert", "FlauBERT"),
+        ("fnet", "Fnet"),
         ("fsmt", "FairSeq Machine-Translation"),
         ("squeezebert", "SqueezeBERT"),
         ("bert", "BERT"),
