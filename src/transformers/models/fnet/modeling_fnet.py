@@ -237,7 +237,7 @@ class FnetSelfAttention(nn.Module):
             past_key_value=None,
             output_attentions=False,
     ):
-        hidden_states *= attention_mask.unsqueeze(dim=-1)
+        hidden_states = hidden_states * attention_mask
         outputs = torch.fft.fft(torch.fft.fft(hidden_states, dim=-1), dim=-2).real
         return (outputs,)
 
