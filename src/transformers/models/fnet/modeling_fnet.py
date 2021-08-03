@@ -239,7 +239,7 @@ class FnetSelfAttention(nn.Module):
     ):
         print("Hidden shape: ", hidden_states.shape)
         print("Attention Mask shape: ", attention_mask.shape)
-        hidden_states = hidden_states * attention_mask
+        hidden_states = hidden_states * attention_mask.unsqueeze(dim=-1)
         outputs = torch.fft.fft(torch.fft.fft(hidden_states, dim=-1), dim=-2).real
         return (outputs,)
 
@@ -856,7 +856,7 @@ class FnetModel(FnetPreTrainedModel):
 
         # We can provide a self-attention mask of dimensions [batch_size, from_seq_length, to_seq_length]
         # ourselves in which case we just need to make it broadcastable to all heads.
-        extended_attention_mask: torch.Tensor = self.get_extended_attention_mask(attention_mask, input_shape, device)
+        #extended_attention_mask: torch.Tensor = self.get_extended_attention_mask(attention_mask, input_shape, device)
 
         # If a 2D or 3D attention mask is provided for the cross-attention
         # we need to make broadcastable to [batch_size, num_heads, seq_length, seq_length]
@@ -885,7 +885,7 @@ class FnetModel(FnetPreTrainedModel):
         )
         encoder_outputs = self.encoder(
             embedding_output,
-            attention_mask=extended_attention_mask,
+            attention_mask=attention_mask,
             head_mask=head_mask,
             encoder_hidden_states=encoder_hidden_states,
             encoder_attention_mask=encoder_extended_attention_mask,
@@ -1515,7 +1515,7 @@ class FnetForMultipleChoice(FnetPreTrainedModel):
         num_choices = input_ids.shape[1] if input_ids is not None else inputs_embeds.shape[1]
 
         input_ids = input_ids.view(-1, input_ids.size(-1)) if input_ids is not None else None
-        attention_mask = attention_mask.view(-1, attention_mask.size(-1)) if attention_mask is not None else None
+        #attention_mask = attention_mask.view(-1, attention_mask.size(-1)) if attention_mask is not None else None
         token_type_ids = token_type_ids.view(-1, token_type_ids.size(-1)) if token_type_ids is not None else None
         position_ids = position_ids.view(-1, position_ids.size(-1)) if position_ids is not None else None
         inputs_embeds = (
